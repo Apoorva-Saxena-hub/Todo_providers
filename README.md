@@ -20,7 +20,14 @@ It allows users to add,view, update and delete tasks with due date, supporting l
 Follow the steps to run the app on your machine:
 
 1. ** Clone the repository **
+git clone https://github.com/Apoorva-Saxena-hub/Todo_providers.git
+cd Todo_providers
 
+2. Install dependencies
+flutter pub get
+
+3. Run the app
+flutter run
 
 
 
