@@ -155,14 +155,12 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                       ),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.transparent, // keep gradient
+                          backgroundColor: Colors.transparent,
                           shadowColor: Colors.transparent,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 10,
-                          ), // 👈 reduced height
+                          padding: const EdgeInsets.symmetric(vertical: 10),
                         ),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
@@ -192,10 +190,9 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                     ),
                   ),
 
-                  const SizedBox(height: 10), // smaller gap
-                  /// --- Delete Button ---
+                  const SizedBox(height: 10),
                   SizedBox(
-                    width: double.infinity, // 👈 Full width (same as card)
+                    width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
                         provider.deleteTask(widget.task.id);
@@ -204,9 +201,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.red,
                         foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 10,
-                        ), // 👈 reduced height
+                        padding: const EdgeInsets.symmetric(vertical: 10),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),

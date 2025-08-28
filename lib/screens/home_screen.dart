@@ -4,13 +4,12 @@ import 'package:flutter_task/screens/task_detail_screen.dart';
 import 'package:flutter_task/widgets/theme_provider.dart';
 import 'package:provider/provider.dart';
 import '../providers/task_provider.dart';
-import '../widgets/task_tile.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<TaskProvider>(context);
-    final theme = Theme.of(context); // <-- use theme
+    final theme = Theme.of(context); 
 
     return Scaffold(
       appBar: AppBar(
@@ -57,7 +56,7 @@ class HomeScreen extends StatelessWidget {
               child: Text(
                 "No tasks yet",
                 style: theme.textTheme.bodyLarge?.copyWith(
-                  color: theme.colorScheme.onBackground, // adapts with theme
+                  color: theme.colorScheme.onBackground, 
                 ),
               ),
             )
@@ -120,7 +119,7 @@ class HomeScreen extends StatelessWidget {
         title: Text(
           title,
           style: theme.textTheme.titleMedium?.copyWith(
-            color: theme.colorScheme.onPrimaryContainer, // auto switch
+            color: theme.colorScheme.onPrimaryContainer, 
           ),
         ),
         children: tasks

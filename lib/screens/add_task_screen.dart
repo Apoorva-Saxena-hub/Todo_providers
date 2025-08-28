@@ -12,7 +12,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   final _formKey = GlobalKey<FormState>();
   String _title = "";
   String? _description;
-  DateTime? _dueDate; // ✅ for storing selected date
+  DateTime? _dueDate;
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +48,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     ),
                   ),
                   SizedBox(height: 30),
-
-                  /// --- Title ---
                   TextFormField(
                     decoration: InputDecoration(
                       label: RichText(
@@ -76,8 +74,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     onSaved: (v) => _title = v!,
                   ),
                   SizedBox(height: 16),
-
-                  /// --- Description ---
                   TextFormField(
                     maxLines: 3,
                     decoration: InputDecoration(
@@ -89,8 +85,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     onSaved: (v) => _description = v,
                   ),
                   SizedBox(height: 16),
-
-                  /// --- Due Date Picker ---
                   Row(
                     children: [
                       const Text(
@@ -134,8 +128,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                   ),
 
                   SizedBox(height: 24),
-
-                  /// --- Save Button ---
                   ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.teal[200],
@@ -161,7 +153,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                             id: DateTime.now().millisecondsSinceEpoch,
                             title: _title,
                             description: _description,
-                            dueDate: _dueDate, // ✅ save date too
+                            dueDate: _dueDate,
                           ),
                         );
                         Navigator.pop(context);

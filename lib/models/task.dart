@@ -1,5 +1,5 @@
 class Task {
-  int id; // for SQLite or Hive key
+  int id; 
   String title;
   String? description;
   bool isCompleted;
@@ -13,7 +13,6 @@ class Task {
     this.dueDate,
   });
 
-  // For persistence (example: SharedPreferences / SQLite / Hive)
   Map<String, dynamic> toMap() => {
     'id': id,
     'title': title,
