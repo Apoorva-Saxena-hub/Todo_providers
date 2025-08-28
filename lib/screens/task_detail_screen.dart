@@ -52,9 +52,14 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                       labelText: "Title",
                       border: OutlineInputBorder(),
                     ),
-                    validator: (value) => value == null || value.isEmpty
-                        ? "Title required"
-                        : null,
+                    validator: (value) {
+                      if (value == null || value.isEmpty)
+                        return "Title required";
+                      final regex = RegExp(r'^[a-zA-Z\s]+$');
+                      if (!regex.hasMatch(value))
+                        return "Title can only contain letters";
+                      return null;
+                    },
                     onSaved: (value) => _title = value!,
                   ),
 
@@ -66,6 +71,14 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                       labelText: "Description",
                       border: OutlineInputBorder(),
                     ),
+                    validator: (v) {
+                      if (v != null && v.isNotEmpty) {
+                        final regex = RegExp(r'^[a-zA-Z0-9\s]+$');
+                        if (!regex.hasMatch(v))
+                          return "Only letters and numbers allowed";
+                      }
+                      return null;
+                    },
                     onSaved: (value) => _description = value,
                   ),
 

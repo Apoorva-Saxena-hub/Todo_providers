@@ -69,8 +69,13 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    validator: (v) =>
-                        v == null || v.isEmpty ? "Title is required" : null,
+                    validator: (v) {
+                      if (v == null || v.isEmpty) return "Title is required";
+                      final regex = RegExp(r'^[a-zA-Z\s]+$');
+                      if (!regex.hasMatch(v))
+                        return "Title can only contain letters";
+                      return null;
+                    },
                     onSaved: (v) => _title = v!,
                   ),
                   SizedBox(height: 16),
@@ -82,6 +87,16 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
+                    validator: (v) {
+                      if (v != null && v.isNotEmpty) {
+                        final regex = RegExp(
+                          r'^[a-zA-Z0-9\s]+$',
+                        ); 
+                        if (!regex.hasMatch(v))
+                          return "Only letters and numbers allowed";
+                      }
+                      return null;
+                    },
                     onSaved: (v) => _description = v,
                   ),
                   SizedBox(height: 16),
